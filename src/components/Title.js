@@ -4,12 +4,12 @@ import { mq } from "../styles/mq"
 import { font, color } from "../styles/variables"
 import FlowerImg from "../img/flower.svg"
 
-const Title = ({ headLevel, titleText, titleType }) => {
+const Title = ({ headLevel, titleType, children }) => {
   const TitleEl = `h${headLevel}`
 
   return (
     <TitleEl css={[titleType === "flower" ? titleFlower : titleDefaultStyle]}>
-      {titleText}
+      {children}
     </TitleEl>
   )
 }

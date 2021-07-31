@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from "@emotion/react"
-import { translateWeather } from "../functions/translateWeather"
 import WeatherItem from "./WeatherItem"
 import { mq } from "../styles/mq"
 
@@ -16,8 +15,6 @@ const WeatherList = ({ data }) => {
 
           // format data
           const date = new Date(dt * 1000)
-          console.log(date)
-          console.log(max, min)
 
           return (
             <WeatherItem

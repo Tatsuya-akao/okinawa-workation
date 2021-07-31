@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { css } from "@emotion/react"
-import { rgba } from "emotion-rgba"
 import { font, color } from "../styles/variables"
 import FlowerImg from "../img/flower.svg"
 import { mq } from "../styles/mq"
-import { showPc } from "../styles/display"
-import titleImg from "../img/hero-title.svg"
-import titleImgSp from "../img/hero-title-sp.svg"
+import Title from "./Title"
 
 const Countdown = () => {
   const startTime = new Date(`August 12 2021 00:00:00`)
@@ -39,14 +36,11 @@ const Countdown = () => {
 
   return (
     <div css={countdown}>
-      <h1 css={countTitle}>
-        <img css={titleText} src={titleImg} alt="沖縄ワーケーション開始まで" />
-        <img
-          css={titleTextSp}
-          src={titleImgSp}
-          alt="沖縄ワーケーション開始まで"
-        />
-      </h1>
+      <Title headLevel="1" titleType="flower">
+        沖縄ワーケーション
+        <br />
+        開始まで
+      </Title>
       <ul css={time}>
         <li className="time-block">
           <span className="num">{formatTime(days)}</span>
@@ -144,24 +138,6 @@ const countTitle = css`
       right: 4%;
       bottom: -10%;
     }
-  }
-`
-
-const titleText = css`
-  ${mq("pc")} {
-    display: none;
-  }
-`
-
-const titleTextSp = css`
-  display: none;
-
-  ${mq("pc")} {
-    display: block;
-  }
-
-  ${mq("tab")} {
-    width: 72%;
   }
 `
 

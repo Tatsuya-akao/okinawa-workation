@@ -2,8 +2,8 @@ import React from "react"
 import { css } from "@emotion/react"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
-import Weather from "../components/Weather"
 import Helmet from "react-helmet"
+import Loading from "../components/Loading"
 
 export default function Home() {
   return (
@@ -13,9 +13,9 @@ export default function Home() {
         <meta name="description" content="沖縄ワーケーション2021　8/12~8/19" />
         <html lang="ja" />
       </Helmet>
+      <Loading />
       <Layout>
         <Hero />
-        {/* <div css={abc}><Weather /></div> */}
       </Layout>
     </>
   )
