@@ -20,13 +20,14 @@ const Slider = () => {
 
   return (
     <Swiper
-      slidesPerView={1}
+      slidesPerView={1.2}
+      spaceBetween={10}
       breakpoints={{
         769: {
           slidesPerView: 1.8,
+          spaceBetween: 20,
         },
       }}
-      spaceBetween={20}
       centeredSlides={true}
       loop={true}
       onSlideChange={() => console.log("slide change")}
@@ -71,7 +72,8 @@ const swiper = css`
   max-width: 144rem;
   margin: 4rem auto 0;
   ${mq("tab")} {
-    padding-bottom: 2.5rem;
+    margin: 4rem -6% 0;
+    padding: 0 5% 2.5rem;
   }
 
   &::before,
@@ -126,7 +128,7 @@ const swiper = css`
     transform: scale(0.85);
 
     ${mq("tab")} {
-      transform: scale(1);
+      transform: scale(0.9);
     }
   }
 
