@@ -5,8 +5,8 @@
 
 @font-face {
   font-family: "mukashi";
-  src: local("../fonts/min_gomarice_mukasi_mukasi.ttf"),
-    url("../fonts/min_gomarice_mukasi_mukasi.ttf");
+  src: local("../fonts/gomarice_mukasi_mukasi.ttf"),
+    url("../fonts/gomarice_mukasi_mukasi.ttf");
   font-weight: 400;
 }
 

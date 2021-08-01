@@ -2,6 +2,7 @@ import React from "react"
 import { css } from "@emotion/react"
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
+import Accommodation from "../components/Accommodation"
 import Helmet from "react-helmet"
 import Loading from "../components/Loading"
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Loading />
       <Layout>
         <Hero />
+        <Accommodation />
       </Layout>
     </>
   )

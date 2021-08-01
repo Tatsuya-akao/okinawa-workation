@@ -60,7 +60,7 @@ const weatherItem = css`
   }
 
   ${mq("tab")} {
-    width: 20vw;
+    width: 20%;
     margin: 2vw;
     padding: 2% 0 2%;
     backdrop-filter: blur(6px);

@@ -66,6 +66,7 @@ const Countdown = () => {
 const countdown = css`
   padding: 10rem 0;
   /* color: #735858; */
+  width: 100%;
   color: ${color.white};
 
   ${mq("tab")} {
@@ -174,7 +175,7 @@ const time = css`
     }
 
     ${mq("tab")} {
-      width: 20vw;
+      width: 20%;
       margin: 2vw;
       padding: 2% 0 4%;
       backdrop-filter: blur(6px);

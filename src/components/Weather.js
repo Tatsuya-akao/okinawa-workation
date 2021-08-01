@@ -24,7 +24,7 @@ const Weather = () => {
       setData(newData)
       setTimeout(() => {
         loadingIsDone()
-      }, 3000)
+      }, 1500)
     } catch (error) {
       console.log(error)
     }
@@ -46,6 +46,7 @@ const Weather = () => {
 
 const weatherStyle = css`
   margin-top: 6rem;
+  width: 100%;
   ${mq("tab")} {
     margin-top: 6%;
   }

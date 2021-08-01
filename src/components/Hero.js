@@ -29,7 +29,7 @@ const hero = css`
   padding: 10% 0 20%;
 
   ${mq("tab")} {
-    padding: 10vw 0 20vw;
+    padding: 10vw 5% 20vw;
   }
 `
 

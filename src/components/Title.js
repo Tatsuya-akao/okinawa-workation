@@ -4,11 +4,16 @@ import { mq } from "../styles/mq"
 import { font, color } from "../styles/variables"
 import FlowerImg from "../img/flower.svg"
 
-const Title = ({ headLevel, titleType, children }) => {
+const Title = ({ headLevel, titleType, color, children }) => {
   const TitleEl = `h${headLevel}`
 
   return (
-    <TitleEl css={[titleType === "flower" ? titleFlower : titleDefaultStyle]}>
+    <TitleEl
+      css={[
+        titleType === "flower" ? titleFlower : titleDefaultStyle,
+        color === "sand" ? titleColorSand : null,
+      ]}
+    >
       {children}
     </TitleEl>
   )
@@ -79,10 +84,14 @@ const titleFlower = css`
     }
 
     ${mq("tab")} {
-      right: 4%;
+      right: 0;
       bottom: -10%;
     }
   }
+`
+
+const titleColorSand = css`
+  color: #7b5f07;
 `
 
 const titleDefaultStyle = css``
