@@ -50,21 +50,21 @@ const btn = css`
   border-radius: 5px;
   transition: all 0.3s;
 
-  ${mq("tab")} {
+  /* ${mq("tab")} {
     font-size: 1.4rem;
     width: 16rem;
     height: 4rem;
     box-shadow: 0 4px #d4314f;
-  }
+  } */
 
   &:hover {
     box-shadow: none;
     transform: translateY(5px);
     background-color: #f54f6e;
 
-    ${mq("tab")} {
+    /* ${mq("tab")} {
       transform: translateY(4px);
-    }
+    } */
   }
 
   img {
