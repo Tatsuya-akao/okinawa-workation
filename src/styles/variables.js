@@ -3,7 +3,6 @@ const color = {
 }
 
 const font = {
-  tech: "Share Tech Mono",
   roboto: "Roboto Mono",
   mukashi: "mukashi",
 }

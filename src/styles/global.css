@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
 
 @font-face {
   font-family: "mukashi";
-  src: local("../fonts/gomarice_mukasi_mukasi.ttf"),
-    url("../fonts/gomarice_mukasi_mukasi.ttf");
+  src: local("../fonts/min_gomarice_mukasi_mukasi.ttf"),
+    url("../fonts/min_gomarice_mukasi_mukasi.ttf");
   font-weight: 400;
 }
 

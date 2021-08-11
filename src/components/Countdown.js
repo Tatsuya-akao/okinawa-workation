@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { css } from "@emotion/react"
 import { font, color } from "../styles/variables"
-import FlowerImg from "../img/flower.svg"
+import { GatsbyContext } from "../context/Context"
 import { mq } from "../styles/mq"
 import Title from "./Title"
 
 const Countdown = () => {
+  const { isCountdown, countdownIsDone } = useContext(GatsbyContext) || {
+    isCountdown: true,
+    countdownIsDone: null,
+  }
+
   const startTime = new Date(`August 12 2021 00:00:00`)
   const currentTime = new Date()
   const [diff, setDiff] = useState(startTime - currentTime)
@@ -26,6 +31,14 @@ const Countdown = () => {
     return () => clearInterval(intervalId)
   }, [seconds])
 
+  useEffect(() => {
+    const startTime = new Date(`August 12 2021 00:00:00`)
+    const currentTime = new Date()
+    if (startTime < currentTime) {
+      countdownIsDone()
+    }
+  }, [])
+
   const formatTime = num => {
     if (num < 10) {
       return `0${num}`
@@ -36,109 +49,53 @@ const Countdown = () => {
 
   return (
     <div css={countdown}>
-      <Title headLevel="1" titleType="flower">
-        沖縄ワーケーション
-        <br />
-        開始まで
-      </Title>
-      <ul css={time}>
-        <li className="time-block">
-          <span className="num">{formatTime(days)}</span>
-          <span>Days</span>
-        </li>
-        <li className="time-block">
-          <span className="num">{formatTime(hours)}</span>
-          <span>Hours</span>
-        </li>
-        <li className="time-block">
-          <span className="num">{formatTime(minutes)}</span>
-          <span>Minutes</span>
-        </li>
-        <li className="time-block">
-          <span className="num">{formatTime(seconds)}</span>
-          <span>Seconds</span>
-        </li>
-      </ul>
+      {isCountdown ? (
+        <Title headLevel="1" titleType="flower">
+          沖縄ワーケーション
+          <br />
+          開始まで
+        </Title>
+      ) : (
+        <Title headLevel="1" titleType="flower">
+          沖縄ワーケーション
+          <br />
+          開始!!!
+        </Title>
+      )}
+
+      {isCountdown ? (
+        <ul css={time}>
+          <li className="time-block">
+            <span className="num">{formatTime(days)}</span>
+            <span>Days</span>
+          </li>
+          <li className="time-block">
+            <span className="num">{formatTime(hours)}</span>
+            <span>Hours</span>
+          </li>
+          <li className="time-block">
+            <span className="num">{formatTime(minutes)}</span>
+            <span>Minutes</span>
+          </li>
+          <li className="time-block">
+            <span className="num">{formatTime(seconds)}</span>
+            <span>Seconds</span>
+          </li>
+        </ul>
+      ) : (
+        <p css={startText}>8/12 - 8/19</p>
+      )}
     </div>
   )
 }
 
 const countdown = css`
   padding: 10rem 0;
-  /* color: #735858; */
   width: 100%;
   color: ${color.white};
 
   ${mq("tab")} {
     padding: 4rem 0 6rem;
-  }
-`
-
-const countTitle = css`
-  position: relative;
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ${mq("pc")} {
-    padding: 0 10rem;
-  }
-
-  ${mq("tab")} {
-    font-size: 9vw;
-    padding: 0;
-  }
-
-  &::before,
-  &::after {
-    content: url(${FlowerImg});
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 15rem;
-    flex-shrink: 0;
-    z-index: -1;
-
-    ${mq("pc")} {
-      position: absolute;
-    }
-
-    ${mq("tab")} {
-      width: 18vw;
-    }
-  }
-
-  &::before {
-    transform: scale(-1, -1);
-    margin-right: 2rem;
-
-    ${mq("pc")} {
-      left: -4rem;
-      top: -7rem;
-      transform: scale(-1, -1) rotate(-15deg);
-    }
-
-    ${mq("tab")} {
-      left: 0;
-      top: -54%;
-    }
-  }
-
-  &::after {
-    transform: scale(1, 1);
-    margin-left: 2rem;
-
-    ${mq("pc")} {
-      right: -1rem;
-      bottom: -2rem;
-      transform: scale(1, 1) rotate(-15deg);
-    }
-
-    ${mq("tab")} {
-      right: 4%;
-      bottom: -10%;
-    }
   }
 `
 
@@ -210,6 +167,12 @@ const time = css`
       font-size: 3vw;
     }
   }
+`
+
+const startText = css`
+  font-size: 3rem;
+  font-family: ${font.roboto};
+  font-weight: bold;
 `
 
 export default Countdown
